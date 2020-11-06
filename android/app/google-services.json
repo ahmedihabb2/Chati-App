@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1052250519204",
+    "firebase_url": "https://chati-app-14be3.firebaseio.com",
+    "project_id": "chati-app-14be3",
+    "storage_bucket": "chati-app-14be3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1052250519204:android:41ded8f9fc4a599d379831",
+        "android_client_info": {
+          "package_name": "com.IhabTech.ChatiApp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1052250519204-00pbeh5il3a493haqjov0p9vdkrl08di.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.IhabTech.ChatiApp",
+            "certificate_hash": "6521b6a1f3b4320296ba95bb6cedd43fd6f5f450"
+          }
+        },
+        {
+          "client_id": "1052250519204-6qdkg6utg373sg17df0092sqguqtl8o8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCSAX1LKM82whp8rTStjdyzx3Pak13VMvg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1052250519204-6qdkg6utg373sg17df0092sqguqtl8o8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
