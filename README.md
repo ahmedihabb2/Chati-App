@@ -16,3 +16,15 @@ it has the following features : <br>
 
 ## Sign in with Google <br> 
 <img src="ScreenShots/Screenshot_20210131_011951_com.IhabTech.ChatiApp.jpg" class="center" width="200" height="400">
+
+## HomePage <br> 
+<img src="ScreenShots/Screenshot_20210131_012102_com.IhabTech.ChatiApp.jpg" class="center" width="200" height="400">
+
+## Search for friends<br> 
+<img src="ScreenShots/Screenshot_20210131_012125_com.IhabTech.ChatiApp.jpg" class="center" width="200" height="400">
+
+## Customize your profile<br> 
+<img src="ScreenShots/Screenshot_20210131_014907_com.IhabTech.ChatiApp.jpg" class="center" width="200" height="400">
+
+
+
