@@ -1,4 +1,6 @@
 import 'dart:async';
+import 'package:Chati/Pages/Listtile%20model.dart';
+import 'package:Chati/Pages/SearchPage.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:Chati/Models/user.dart';
 import 'package:Chati/main.dart';
@@ -12,6 +14,7 @@ import 'package:Chati/Pages/AccountSettingsPage.dart';
 import 'package:Chati/Widgets/ProgressWidget.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 
 class HomeScreen extends StatefulWidget {
@@ -22,6 +25,8 @@ class HomeScreen extends StatefulWidget {
 }
 
 class HomeScreenState extends State<HomeScreen> {
+  SharedPreferences preferences;
+  List ChattingWith = [];
   final String currentUserId;
   HomeScreenState({Key key , @required this.currentUserId});
   bool appear = false;
@@ -30,6 +35,7 @@ class HomeScreenState extends State<HomeScreen> {
   homeAppbar()
   {
     return AppBar(
+      backgroundColor: Colors.indigo,
       automaticallyImplyLeading: false,
       actions: [
         IconButton(
@@ -40,66 +46,51 @@ class HomeScreenState extends State<HomeScreen> {
           icon: Icon(Icons.person_add , size: 30.0,color: Colors.white),
           onPressed: (){
             setState(() {
-              appear =true;
+             Navigator.push(context, MaterialPageRoute(builder: (context)=> SearchScreen(currentUserId: currentUserId,)));
             });
           },
         )
       ],
-      title: appear ? Container(
-        margin: new EdgeInsets.only(bottom: 4.0),
-        child: TextFormField(
-          style: TextStyle(fontSize: 18.0 , color: Colors.white),
-          controller: searchTextEditingController,
-          decoration: InputDecoration(
-            hintText: "Search for user",
-            hintStyle: TextStyle(color: Colors.blueGrey),
-            enabledBorder: UnderlineInputBorder(
-              borderSide: BorderSide(color: Colors.grey)
-            ),
-            focusedBorder: UnderlineInputBorder(
-                borderSide: BorderSide(color: Colors.white)
-            ),
-            filled: true,
-            prefixIcon: IconButton(
-              icon: Icon(Icons.close , color: Colors.white),
-              onPressed: (){
-                setState(() {
-                  appear = false;
-                });
-              },
-            ),
-            suffixIcon: IconButton(
-              icon: Icon(Icons.delete , color: Colors.white,),
-              onPressed: emptyTextfield,
-            )
-          ),
-            onFieldSubmitted: controlSearching,
-        ),
-      ) : Text('Chati',
+      title:  Text('Chati',
       style: TextStyle(color: Colors.white,
-      fontSize: 30.0,
-        fontWeight: FontWeight.bold,
+      fontSize: 25.0,
+        fontWeight: FontWeight.w500,
+        letterSpacing: 1.2
       ),)
     );
   }
-  controlSearching(String userName)
-  {
-    Future<QuerySnapshot> allFoundUsers = Firestore.instance.collection('users')
-        .where('nickname' , isGreaterThanOrEqualTo: userName ).getDocuments();
 
-    setState(() {
-      futureSearchResults = allFoundUsers;
-    });
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getLocal();
   }
-  emptyTextfield(){
-    searchTextEditingController.clear();
+  getLocal() async{
+   preferences= await SharedPreferences.getInstance();
+   ChattingWith = preferences.getStringList('CHattingWith');
+   print(ChattingWith);
+   if(ChattingWith == null)
+     {
+       ChattingWith = [];
+     }
+   setState(() {
+
+   });
 }
-  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: homeAppbar(),
-      body: (futureSearchResults == null) ? noSearchResultsFound() : displaySearchResults(),
+      body: ListView.builder(
+        itemBuilder: ((context,index){
+          return Padding(
+            padding: const EdgeInsets.only(left:8.0 , bottom: 8.0 , right: 8.0),
+            child: TileModel(id: ChattingWith[index],),
+          );
+        }),
+        itemCount:  ChattingWith.length,
+      ),
     );
   }
   displaySearchResults()
@@ -144,43 +135,3 @@ class HomeScreenState extends State<HomeScreen> {
 }
 }
 
-class UserResult extends StatelessWidget
-{
-  final User eachUser;
-  UserResult(this.eachUser);
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.all(4.0),
-      child: Container(
-        color: Colors.white,
-        child: Column(
-          children: [
-            GestureDetector(
-              onTap: ()=>sendUsertoChatpage(context),
-              child: ListTile(
-                leading: CircleAvatar(
-                  backgroundColor: Colors.black,
-                  backgroundImage: CachedNetworkImageProvider(eachUser.photoUrl),
-                ),
-                title: Text(
-                  eachUser.nickname ,
-                  style: TextStyle(color: Colors.black , fontSize: 16.0 , fontWeight: FontWeight.bold),
-                ),
-                subtitle: Text(
-                  'Joined: ' + DateFormat("dd MMMM, yyyy - hh:mm:aa")
-                      .format(DateTime.fromMillisecondsSinceEpoch(int.parse(eachUser.createdAt))),
-                  style: TextStyle(color: Colors.grey , fontSize: 14.0 , fontStyle: FontStyle.italic),
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-  sendUsertoChatpage(BuildContext context)
-  {
-    Navigator.push(context, MaterialPageRoute(builder: (context)=>Chat(receiverId : eachUser.id , receiverPUrl: eachUser.photoUrl , receiverName: eachUser.nickname)));
-  }
-}

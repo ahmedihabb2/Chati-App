@@ -22,7 +22,6 @@ class Settings extends StatelessWidget {
         iconTheme: IconThemeData(
           color: Colors.white
         ),
-        backgroundColor: Colors.lightBlueAccent,
         title: Text("Account Settings" ,
         style: TextStyle(fontWeight: FontWeight.bold , color: Colors.white)),
         centerTitle: true,
@@ -207,7 +206,7 @@ class SettingsScreenState extends State<SettingsScreen> {
                   Container(
                     child: Text(
                       "Profile Name",
-                      style: TextStyle(fontStyle: FontStyle.italic , fontWeight: FontWeight.bold , color: Colors.lightBlueAccent),
+                      style: TextStyle(fontStyle: FontStyle.italic , fontWeight: FontWeight.bold , color: Colors.indigo),
                     ),
                     margin: EdgeInsets.only(left: 10.0 , bottom: 5.0 , top: 10.0),
                   ),
@@ -234,7 +233,7 @@ class SettingsScreenState extends State<SettingsScreen> {
                   Container(
                     child: Text(
                       "About Me",
-                      style: TextStyle(fontStyle: FontStyle.italic , fontWeight: FontWeight.bold , color: Colors.lightBlueAccent),
+                      style: TextStyle(fontStyle: FontStyle.italic , fontWeight: FontWeight.bold , color: Colors.indigo),
                     ),
                     margin: EdgeInsets.only(left: 10.0 , bottom: 5.0 , top: 30.0),
                   ),
@@ -263,7 +262,7 @@ class SettingsScreenState extends State<SettingsScreen> {
               Container(
                 child: FlatButton(
                   child: Text("Update" , style: TextStyle(fontSize: 16.0)),
-                  color: Colors.lightBlueAccent,
+                  color: Colors.indigo,
                   highlightColor: Colors.grey,
                   splashColor: Colors.transparent,
                   textColor: Colors.white,

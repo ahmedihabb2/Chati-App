@@ -37,12 +37,7 @@ class LoginScreenState extends State<LoginScreen> {
     });
 
     preferences = await SharedPreferences.getInstance();
-    isLoggedIn = await googleSignIn.isSignedIn();
-    if(isLoggedIn)
-      {
-        Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => HomeScreen(currentUserId: preferences.getString('id'))),
-            (Route<dynamic> route) => false,);
-      }
+
     this.setState(() {
       isLoading =false;
     });
@@ -56,7 +51,7 @@ class LoginScreenState extends State<LoginScreen> {
           gradient: LinearGradient(
             begin: Alignment.topRight,
             end: Alignment.bottomLeft,
-            colors: [Colors.lightBlueAccent , Colors.purpleAccent]
+            colors: [Colors.lightBlueAccent , Colors.indigo[600]]
           )
         ),
         alignment: Alignment.center,
