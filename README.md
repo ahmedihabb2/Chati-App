@@ -26,5 +26,6 @@ it has the following features : <br>
 ## Customize your profile<br> 
 <img src="ScreenShots/Screenshot_20210131_014907_com.IhabTech.ChatiApp.jpg" class="center" width="200" height="400">
 
-
+### Download link
+https://www.mediafire.com/file/41b6apjxw243e7l/Chati.apk/file
 
