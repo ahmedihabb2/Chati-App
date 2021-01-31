@@ -14,4 +14,5 @@ it has the following features : <br>
 - Search for friends by name <br>
   </p>
 
-
+<b> Sign in with Google</b>
+<img src="ScreenShots/Screenshot_20210131_011951_com.IhabTech.ChatiApp.jpg" class="center">
