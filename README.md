@@ -1,6 +1,11 @@
+<style>
 p {text-align: center;}
+</style>
+
 
 <p>![alt text](ScreenShots/1.png)</p>
+
+
 
 
 𝗖𝗛𝗔𝗧𝗜 A fully functional chat application developed by me
