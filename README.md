@@ -1,5 +1,5 @@
 
-  ![alt text](ScreenShots/1.png)
+<img src="ScreenShots/1.png" class="center">
 
 <hr class="solid">
 
