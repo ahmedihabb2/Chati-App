@@ -15,4 +15,4 @@ it has the following features : <br>
   </p>
 
 <b> Sign in with Google</b>
-<img src="ScreenShots/Screenshot_20210131_011951_com.IhabTech.ChatiApp.jpg" class="center">
+<img src="ScreenShots/Screenshot_20210131_011951_com.IhabTech.ChatiApp.jpg" class="center" width="200" height="200">
