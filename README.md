@@ -1,9 +1,5 @@
-<style>
-p {text-align: center;}
-</style>
 
-
-<p>![alt text](ScreenShots/1.png)</p>
+![alt text](ScreenShots/1.png)
 
 
 
